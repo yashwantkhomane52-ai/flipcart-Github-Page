@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: auto;
+        width: auto;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+      }
+      .location {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .drop {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .categories {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      ul li {
+        list-style-type: none;
+        list-style: none;
+        color: white;
+        font-weight: 400;
+        text-decoration: underline solid black;
+      }
+      .categories::-webkit-scrollbar {
+        display: none;
+      }
+      .hero1::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category {
+        min-width: 90px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        cursor: pointer;
+        position: relative;
+      }
+
+      .category img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+
+      .category p {
+        font-size: 15px;
+        margin-top: 8px;
+      }
+
+      .category.active::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: #2874f0;
+        border-radius: 20px;
+      }
+      .banner {
+        flex: 0 0 700px;
+        height: 300px;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .hero2 {
+        gap: 20px;
+        padding: 10px;
+        display: flex;
+        position: relative;
+      }
+      .demand {
+        gap: 20px;
+        padding: 10px;
+        display: flex;
+        position: relative;
+      }
+      .hero2.look {
+        bottom: auto;
+      }
+      .demand h2 {
+        top: auto;
+      }
+      .hero2 h2 {
+        position: absolute;
+        top: auto;
+      }
+      /* .hero2 p {
+        bottom: auto;
+      } */
+      .look {
+        display: flex;
+        gap: 20px;
+        margin-top: 80px;
+      }
+      .look img {
+        height: 250px;
+        width: 250px;
+        gap: 20px;
+        border-radius: 10%;
+      }
+      .middle {
+        gap: 15px;
+        padding: 20px;
+        align-items: center;
+      }
+      .toppick img {
+        height: 200px;
+        width: 500px;
+        border-radius: 10%;
+      }
+      .content {
+        width: 750px;
+        gap: 5px;
+        /* background-color: #f5f0f0; */
+      }
+      .content .infinix {
+        width: 250px;
+      }
+      .infinix {
+        text-align: center;
+      }
+      .content .samsung {
+        width: 300px;
+      }
+      .samsung {
+        text-align: center;
+      }
+      .oppo {
+        text-align: center;
+      }
+      .img1 p {
+        text-align: center;
+      }
+      .last {
+        padding: 30px;
+        gap: 25px;
+      }
+      .coupen {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .social img {
+        height: 20px;
+        width: 20px;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="top"
+      style="
+        background-color: rgb(97, 61, 206);
+        height: 100px;
+        width: 100%;
+        border-radius: 5px;
+        padding: 10px;
+      "
+    >
+      <nav class="header">
+        <button style="background-color: yellow; border-radius: 15%">
+          <img
+            src="https://rukminim2.flixcart.com/fk-p-flap/52/44/image/d2ecfddf891a3922.png?q=60"
+            height="25px"
+            width="25"
+            alt=""
+          />
+          <b>FLIPKART</b>
+        </button>
+        <button style="background-color: whitesmoke; border-radius: 15%">
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/11693/11693344.png"
+            height="25px"
+            width="25"
+            alt=""
+          />
+          <b>Travel</b>
+        </button>
+        <div class="location">
+          <img
+            id="loc"
+            src="https://cdn-icons-png.flaticon.com/128/2838/2838912.png"
+            alt=""
+            height="30px"
+            width="30px"
+          />
+          <p>location:Vadodara</p>
+          <input
+            type="button"
+            placeholder="0"
+            style="
+              background: url(&quot;https://cdn-icons-png.flaticon.com/128/11280/11280638.png&quot;)
+                no-repeat 8px center;
+              background-size: 18px;
+              padding-left: 30px;
+              width: 25px;
+              height: 30px;
+              background-color: antiquewhite;
+              border-radius: 15%;
+            "
+          />
+        </div>
+      </nav>
+      <input
+        type="text"
+        placeholder="Search for Products Brands and More"
+        style="
+          background: url(&quot;https://cdn-icons-png.flaticon.com/128/54/54481.png&quot;)
+            no-repeat 8px center;
+          background-size: 18px;
+          padding-left: 30px;
+          width: 550px;
+          height: 30px;
+          background-color: rgb(234, 231, 228);
+          border: 0cap;
+        "
+      />
+      <!-- <img src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png" alt="" height="30px"
+          width="30px" id="pro"> -->
+      <select
+        name="profile"
+        id="profile"
+        onmouseover="true"
+        style="background-color: rgb(97, 61, 206); border: 0cap"
+      >
+        <option value="volvo">Yash</option>
+        <option value="volvo">My Profile</option>
+        <option value="saab">Orders</option>
+        <option value="mercedes">Coupons</option>
+        <option value="audi">Wishlist</option>
+        <option value="audi">Log Out</option>
+      </select>
+      <select
+        name="more"
+        id="more"
+        onmouseover="true"
+        style="background-color: rgb(97, 61, 206); border: 0cap"
+      >
+        <option value="volvo">More</option>
+        <option value="volvo">Become a Seller</option>
+        <option value="volvo">Notification setting</option>
+        <option value="saab">Customer Care</option>
+      </select>
+      <input
+        type="text"
+        placeholder="Cart"
+        style="
+          background: url(&quot;https://cdn-icons-png.flaticon.com/128/3514/3514491.png&quot;)
+            no-repeat 8px center;
+          background-size: 18px;
+          padding-left: 30px;
+          width: 50px;
+          height: 30px;
+          background-color: rgb(97, 61, 206);
+          border: 0cap;
+          margin-left: auto;
+        "
+      />
+    </header>
+    <section class="categories">
+      <div class="category active">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/all.svg"
+          alt=""
+        />
+        <p>For You</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/mobiles.svg"
+          alt=""
+        />
+        <p>Mobiles</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/fashion.svg"
+          alt=""
+        />
+        <p>Fashion</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/beauty.svg"
+          alt=""
+        />
+        <p>Beauty</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/electronics.svg"
+          alt=""
+        />
+        <p>Electronics</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/home-final.svg"
+          alt=""
+        />
+        <p>Home</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/tv.svg"
+          alt=""
+        />
+        <p>Appliances</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/toy.svg"
+          alt=""
+        />
+        <p>Toys</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/food.svg"
+          alt=""
+        />
+        <p>Food</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/auto-acc.svg"
+          alt=""
+        />
+        <p>Auto</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/sport.svg"
+          alt=""
+        />
+        <p>Sports</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/furniture.svg"
+          alt=""
+        />
+        <p>Furniture</p>
+      </div>
+
+      <div class="category">
+        <img
+          src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/books.svg"
+          alt=""
+        />
+        <p>Books</p>
+      </div>
+    </section>
+    <div class="coupen">
+      <img
+        src="https://rukminim2.flixcart.com/fk-p-flap/3200/720/image/6015c703748e7a42.jpg?q=60"
+        alt=""
+        height="200px"
+        width="1200px"
+      />
+    </div>
+    <section
+      class="hero1"
+      style="scrollbar-width: auto; display: flex; gap: 15px; overflow-x: auto"
+    >
+      <div class="banner">
+        <img
+          src="https://rukminim2.flixcart.com/fk-p-flap/3140/1540/image/3d740a0a4c664ed2.png?q=60"
+          alt=""
+        />
+      </div>
+      <div class="banner">
+        <img
+          src="https://rukminim2.flixcart.com/fk-p-flap/3140/1540/image/21cc0509ca9000c5.jpg?q=60"
+          alt=""
+        />
+      </div>
+      <div class="banner">
+        <img
+          src="https://rukminim2.flixcart.com/fk-p-flap/3140/1540/image/dd821f2914646080.jpg?q=60"
+          alt=""
+        />
+      </div>
+      <div class="banner">
+        <img
+          src="https://rukminim2.flixcart.com/fk-p-flap/3140/1540/image/02da5c31c27292d4.png?q=60"
+          alt=""
+        />
+      </div>
+    </section>
+    <section class="middle">
+      <div
+        class="hero2"
+        style="background-color: rgb(232, 239, 255); border-radius: 5%"
+      >
+        <h2>You might be looking for these?</h2>
+        <div class="look">
+          <div class="img1">
+            <img
+              src="https://rukminim2.flixcart.com/image/800/800/xif0q/drone/h/g/k/100-30-90-foldable-drone-with-full-hd-camera-wifi-fpv-altitude-original-imahj4jpgbxyfmyr.jpeg?q=60"
+              alt=""
+              style="background-color: aliceblue"
+            />
+            <p>Mini Drones</p>
+            <p><b>View Store</b></p>
+          </div>
+          <div class="img1">
+            <img
+              src="https://rukminim2.flixcart.com/image/800/800/xif0q/mobile/n/q/b/-original-imahnhc3jzeqmvh8.jpeg?q=60"
+              alt=""
+              style="background-color: aliceblue; gap: 10px"
+            />
+            <p>Smartphones</p>
+            <p><b>View Store</b></p>
+          </div>
+          <div class="img1">
+            <img
+              src="https://rukminim2.flixcart.com/image/800/800/xif0q/headphone/0/r/5/-enriched-transparent-original-imahgnf4gectpgv7.png?q=60"
+              alt=""
+              style="background-color: aliceblue"
+            />
+            <p>Headphones</p>
+            <p><b>View Store</b></p>
+          </div>
+          <div class="img1">
+            <img
+              src="https://rukminim2.flixcart.com/image/800/800/xif0q/watch/5/u/4/-watermarked-original-imahftrpjkwhzywh.jpeg?q=60"
+              alt=""
+              style="background-color: aliceblue"
+            />
+            <p>Wrist Watche</p>
+            <p><b>View Store</b></p>
+          </div>
+          <div class="img1">
+            <img
+              src="https://rukminim2.flixcart.com/image/800/800/xif0q/shirt/v/i/g/l-pk22sh1095g-surhi-resized-original-imahbwfxzz9afnsw.jpeg?q=60"
+              alt=""
+              style="background-color: aliceblue"
+            />
+            <p>Casual Shirts</p>
+            <p><b>View Store</b></p>
+          </div>
+        </div>
+      </div>
+      <section class="sub" style="padding: 15px; gap: 15px">
+        <div class="toppick" style="display: flex; gap: 20px; padding: 10px">
+          <img
+            src="https://rukminim2.flixcart.com/fk-p-flap/700/340/image/b8c151ca21cf19fa.png?q=60"
+            alt=""
+          />
+          <img
+            src="https://rukminim2.flixcart.com/fk-p-flap/700/340/image/bbf021061a059b12.jpg?q=60"
+            alt=""
+          />
+        </div>
+        <div
+          class="hero2"
+          style="background-color: rgb(213, 231, 245); border-radius: 5%"
+        >
+          <h2>Brands in Spotlight</h2>
+          <div class="look">
+            <img
+              src="https://rukminim1.flixcart.com/fk-p-flap/760/1020/image/ccc9cebc4d2f45f8.png?q=60"
+              alt=""
+              style="background-color: aliceblue; gap: 10px"
+            />
+            <img
+              src="https://rukminim1.flixcart.com/fk-p-flap/760/1020/image/086e531c5044de1f.png?q=60"
+              alt=""
+              style="background-color: aliceblue"
+              height="100%"
+              width="100%"
+            />
+            <img
+              src="https://rukminim1.flixcart.com/fk-p-flap/760/1020/image/2f8b1bfec9ec5778.png?q=60"
+              alt=""
+              style="background-color: aliceblue"
+            />
+          </div>
+        </div>
+      </section>
+      <div class="hero2">
+        <h2>Great Finds for you</h2>
+        <!-- <p>sponsered</p> -->
+        <div
+          class="look"
+          style="
+            display: flex;
+            gap: 15px;
+            background-color: rgb(210, 223, 219);
+            border-radius: 8%;
+          "
+        >
+          <img
+            src="https://rukminim1.flixcart.com/image/140/180/xif0q/mobile/k/x/z/-original-imahznh8qytg6qty.jpeg?q=60"
+            alt=""
+          />
+          <img
+            src="https://rukminim1.flixcart.com/image/140/180/xif0q/mobile/7/h/u/-original-imahz8ygrvtymdby.jpeg?q=60"
+            alt=""
+          />
+          <img
+            src="https://rukminim1.flixcart.com/image/640/860/xif0q/mobile/w/a/g/-original-imahm5cxajhxvhsk.jpeg?q=60"
+            alt=""
+          />
+        </div>
+      </div>
+      <div style="display: flex" class="content">
+        <div class="infinix">
+          <p>Infinix Note 6 pro</p>
+          <p><b>₹40,999</b></p>
+          <p style="color: rgb(63, 63, 185)"><b>₹38,000</b> with bank Offer</p>
+        </div>
+        <div class="samsung">
+          <p>SAMSUNG A36 5G</p>
+          <p><b>₹40,999</b></p>
+          <p style="color: rgb(63, 63, 185)"><b>₹38,000</b> with bank Offer</p>
+        </div>
+        <div class="oppo">
+          <p>Oppo k13 5G plus</p>
+          <p><b>₹35,999</b></p>
+          <p style="color: rgb(63, 63, 185)"><b>₹30,000</b> with bank Offer</p>
+        </div>
+      </div>
+    </section>
+    <section
+      class="demand"
+      style="background-color: rgb(216, 242, 232); position: relative"
+    >
+      <h2 style="position: absolute">Interesting Finds</h2>
+      <div class="brand1" style="display: flex; gap: 15px">
+        <div class="img1">
+          <img
+            src="https://rukminim1.flixcart.com/image/280/374/xif0q/watch/s/h/b/1-abx6700-br-mg-st-abrexo-men-original-imahhqjyryyz5vqq.jpeg?q=60"
+            alt=""
+          />
+          <p>Deal of the Day</p>
+        </div>
+        <div class="img1">
+          <img
+            src="https://rukminim1.flixcart.com/image/280/374/xif0q/sunglass/v/v/o/free-size-ferrari-all-black-vizor-original-imahmwfgdypwhzvx.jpeg?q=60"
+            alt=""
+            height="339px"
+          />
+          <p>Discount on Sunglasses</p>
+        </div>
+        <div class="img1">
+          <img
+            src="https://rukminim1.flixcart.com/image/280/374/xif0q/slipper-flip-flop/p/q/k/7-ab-slid-6065-bersache-green-original-imahc5d2y2h4fwhw.jpeg?q=60"
+            alt=""
+          />
+          <p>Slippers</p>
+        </div>
+        <div class="img1">
+          <img
+            src="https://rukminim1.flixcart.com/image/280/374/xif0q/sandal/t/a/x/8-205089-8-crocs-slate-grey-lime-punch-original-imah8afv5czzbeq9.jpeg?q=60"
+            alt=""
+          />
+          <p>Crocs</p>
+        </div>
+      </div>
+    </section>
+    <footer
+      class="bot"
+      style="background-color: rgb(246, 244, 244); padding: 0cap"
+    >
+      <p>Flipkart-The place you go for your shopping</p>
+      <div class="last" style="background-color: black; display: flex">
+        <div class="about" style="color: #ddd">
+          <ul>
+            <p style="color: grey">ABOUT</p>
+            <a href="#"><li>Contact Us</li></a>
+            <a href="#"><li>About Us</li></a>
+            <a href="#"><li>Careers</li></a>
+            <a href="#"><li>Flipkart stories</li></a>
+            <a href="#"><li>Press</li></a>
+            <a href="#"><li>Corporate Information</li></a>
+          </ul>
+        </div>
+        <div class="about" style="color: #ddd">
+          <ul>
+            <p style="color: grey">GROUP COMPANIES</p>
+            <a href="https://www.myntra.com/"><li>Myntra</li></a>
+            <a href="https://www.cleartrip.com/"><li>Cleartrip</li></a>
+            <a href="https://www.shopsy.in/"><li>Shopsy</li></a>
+          </ul>
+        </div>
+        <div class="about" style="color: #ddd">
+          <ul>
+            <p style="color: grey">HELP</p>
+            <a href=""><li>Payments</li></a>
+            <a href=""><li>Shipping</li></a>
+            <a href=""><li>Cancellation & Returns</li></a>
+            <a href=""><li>FAQ</li></a>
+          </ul>
+        </div>
+        <div class="about" style="color: #ddd">
+          <ul>
+            <p style="color: grey">CONSUMER POLICY</p>
+            <a href=""><li>Cancellation & Returns</li></a>
+            <a href=""><li>Terms Of Use</li></a>
+            <a href=""><li>Security</li></a>
+            <a href=""><li>Privacy</li></a>
+            <a href=""><li>Sitemap</li></a>
+            <a href=""><li>Grievance Redressal</li></a>
+          </ul>
+        </div>
+        <div class="border1" style="color: #ddd; border-left: grey solid">
+          <ul>
+            <p style="color: grey">Mail Us</p>
+            <a href=""><li>Flipkart Internet Private Limited</li></a>
+            <a href=""><li>Buildings Alyssa,Begonia</li></a>
+            <a href=""><li>Clove Embassy Tech Village,</li></a>
+            <a href=""><li>Outer Ring Road,Devarabeesanahali Village,</li></a>
+            <a href=""><li>Bengluru, 560103</li></a>
+            <a href=""><li>Karnataka, India</li></a>
+          </ul>
+          <div
+            class="social"
+            style="background-color: black; padding: 20px; gap: 10px"
+          >
+            <p style="color: grey"><b>Social:</b></p>
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE4M18yMCkiPgo8cGF0aCBkPSJNMTMuNTQzNiAxMC42MTc5TDIwLjA5NzEgM0gxOC41NDQxTDEyLjg1MzcgOS42MTQ0OEw4LjMwODg3IDNIMy4wNjY4OUw5LjkzOTY0IDEzLjAwMjNMMy4wNjY4OSAyMC45OTA4SDQuNjE5OTRMMTAuNjI5MSAxNC4wMDU2TDE1LjQyODggMjAuOTkwOEgyMC42NzA4TDEzLjU0MzIgMTAuNjE3OUgxMy41NDM2Wk0xMS40MTY1IDEzLjA5MDRMMTAuNzIwMiAxMi4wOTQ0TDUuMTc5NTMgNC4xNjkxMUg3LjU2NDkxTDEyLjAzNjMgMTAuNTY1MUwxMi43MzI2IDExLjU2MTFMMTguNTQ0OCAxOS44NzQ4SDE2LjE1OTVMMTEuNDE2NSAxMy4wOTA4VjEzLjA5MDRaIiBmaWxsPSJ3aGl0ZSIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzE4M18yMCI+CjxyZWN0IHg9IjMuMDY2ODkiIHk9IjMiIHdpZHRoPSIxNy42MDM5IiBoZWlnaHQ9IjE4IiByeD0iMC4yIiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+              alt=""
+            />
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjkzMzEgMjFDMTcuOTAzNyAyMSAyMS45MzMxIDE2Ljk3MDYgMjEuOTMzMSAxMkMyMS45MzMxIDcuMDI5NDQgMTcuOTAzNyAzIDEyLjkzMzEgM0M3Ljk2MjU0IDMgMy45MzMxMSA3LjAyOTQ0IDMuOTMzMTEgMTJDMy45MzMxMSAxNi45NzA2IDcuOTYyNTQgMjEgMTIuOTMzMSAyMVoiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTE2LjY4MzEgOC4yNUgxNS4xODMxQzE0LjU4NjQgOC4yNSAxNC4wMTQxIDguNDg3MDUgMTMuNTkyMSA4LjkwOTAxQzEzLjE3MDIgOS4zMzA5NyAxMi45MzMxIDkuOTAzMjYgMTIuOTMzMSAxMC41VjIxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik05LjkzMzExIDEzLjVIMTUuOTMzMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K"
+              alt=""
+            />
+            <img
+              src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/YoutubeLogo-958b78.svg"
+              alt=""
+            />
+            <img
+              src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/InstagramLogo-854a2c.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="about" style="color: #ddd">
+          <ul>
+            <p style="color: grey">Registter Office Address</p>
+            <a href=""><li>Flipkart Internet Private Limited</li></a>
+            <a href=""><li>Buildings Alyssa,Begonia</li></a>
+            <a href=""><li>Clove Embassy Tech Village,</li></a>
+            <a href=""><li>Outer Ring Road,Devarabeesanahali Village,</li></a>
+            <a href=""><li>Bengluru, 560103</li></a>
+            <a href=""><li>Karnataka, India</li></a>
+            <a href=""><li>Telephone:771022938/667973628</li></a>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
