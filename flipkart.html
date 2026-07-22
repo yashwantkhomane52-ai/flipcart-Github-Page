@@ -7,34 +7,39 @@
     <style>
       body {
         height: auto;
-        width: auto;
+        width: 95%;
+        margin: auto;
       }
-      .header {
+      header {
         display: flex;
-        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
       }
       .location {
         margin-left: auto;
         display: flex;
         align-items: center;
+        justify-content: end;
         gap: 8px;
       }
       .drop {
         margin-left: auto;
         display: flex;
-        align-items: center;
+        /* align-items: center; */
         gap: 8px;
       }
       .categories {
-        display: flex;
+        display: grid;
         gap: 10px;
-        justify-content: space-between;
+        justify-items: space-between;
         align-items: center;
         padding: 12px 20px;
-
+        grid-auto-flow: column;
+        grid-auto-rows: 100px;
         border-top: 1px solid #ddd;
         border-bottom: 1px solid #ddd;
-
+        grid-auto-columns: 100px;
         overflow-x: auto;
         scrollbar-width: none;
       }
@@ -185,7 +190,6 @@
   </head>
   <body>
     <header
-      class="top"
       style="
         background-color: rgb(97, 61, 206);
         height: 100px;
